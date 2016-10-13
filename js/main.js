@@ -11,7 +11,7 @@ var app = angular.module('tutorialWebApp', [
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
     // Home
-    .when("/", {templateUrl: "partials/home.html", controller: "PageCtrl"})
+    .when("/", {templateUrl: "Countries/home.html", controller: "PageCtrl"})
     // Pages
     .when("/Norway", {templateUrl: "Countries/Norway.html", controller: "PageCtrl"})
     .when("/Denmark", {templateUrl: "Countries/Denmark.html", controller: "PageCtrl"})
