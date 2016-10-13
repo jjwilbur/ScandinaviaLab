@@ -40,28 +40,48 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
   })
 });
 
+// angular.module('app', ['ui.bootstrap']);
+// function CarouselCtrl($scope){
+//    $scope.slides = [
+//     {
+//       image: './pictures/Norway.jpg',
+//       name: 'Norway'
+//     },
+//     {
+//       image: './pictures/Sweden.jpg',
+//       name: 'Sweden'
+//     },
+//     {
+//       image: './pictures/Finland.jpg',
+//       name: 'Finland'
+//     },
+//     {
+//       image: './pictures/Iceland.jpg',
+//       name: 'Iceland'
+//     },
+//     {
+//       image: './pictures/Denmark.jpg',
+//       name: 'Denmark'
+//     }
+//   ];
+// }
+
+
 angular.module('app', ['ui.bootstrap']);
-function CarouselCtrl($scope){
-   $scope.slides = [
+function CarouselDemoCtrl($scope){
+  $scope.myInterval = 3000;
+  $scope.slides = [
     {
-      image: './pictures/Norway.jpg',
-      name: 'Norway'
+      image: 'http://lorempixel.com/400/200/'
     },
     {
-      image: './pictures/Sweden.jpg',
-      name: 'Sweden'
+      image: 'http://lorempixel.com/400/200/food'
     },
     {
-      image: './pictures/Finland.jpg',
-      name: 'Finland'
+      image: 'http://lorempixel.com/400/200/sports'
     },
     {
-      image: './pictures/Iceland.jpg',
-      name: 'Iceland'
-    },
-    {
-      image: './pictures/Denmark.jpg',
-      name: 'Denmark'
+      image: 'http://lorempixel.com/400/200/people'
     }
   ];
 }
