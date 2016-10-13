@@ -25,7 +25,10 @@ body {
 .img-home-portfolio,
 .img-customer,
 .portfolio-item {
+    display:block;
+    margin:auto;
     margin-bottom: 30px;
+    height: 200px;
 }
 
 .tab-pane {
@@ -134,4 +137,19 @@ footer {
         height: 70%;
         /* increases the carousel height so it looks good on phones */
     }
+}
+
+#slides_control > div{
+  height: 200px;
+}
+img{
+  margin:auto;
+  width: 400px;
+}
+#slides_control {
+  position:absolute;
+  width: 400px;
+  left:50%;
+  top:20px;
+ margin-left:-200px;
 }

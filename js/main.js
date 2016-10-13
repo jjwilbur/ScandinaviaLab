@@ -1,9 +1,4 @@
 /**
- * AngularJS Tutorial 1
- * @author Nick Kaye <nick.c.kaye@gmail.com>
- */
-
-/**
  * Main AngularJS Web Application
  */
 var app = angular.module('tutorialWebApp', [
@@ -18,24 +13,15 @@ app.config(['$routeProvider', function ($routeProvider) {
     // Home
     .when("/", {templateUrl: "partials/home.html", controller: "PageCtrl"})
     // Pages
-    .when("/about", {templateUrl: "partials/about.html", controller: "PageCtrl"})
-    .when("/faq", {templateUrl: "partials/faq.html", controller: "PageCtrl"})
-    .when("/pricing", {templateUrl: "partials/pricing.html", controller: "PageCtrl"})
-    .when("/services", {templateUrl: "partials/services.html", controller: "PageCtrl"})
-    .when("/contact", {templateUrl: "partials/contact.html", controller: "PageCtrl"})
-    // Blog
-    .when("/blog", {templateUrl: "partials/blog.html", controller: "BlogCtrl"})
-    .when("/blog/post", {templateUrl: "partials/blog_item.html", controller: "BlogCtrl"})
+    .when("/Norway", {templateUrl: "Countries/Norway.html", controller: "PageCtrl"})
+    .when("/Denmark", {templateUrl: "Countries/Denmark.html", controller: "PageCtrl"})
+    .when("/Sweden", {templateUrl: "Countries/Sweden.html", controller: "PageCtrl"})
+    .when("/Iceland", {templateUrl: "Countries/Iceland.html", controller: "PageCtrl"})
+    .when("/Finland", {templateUrl: "Countries/Finland.html", controller: "PageCtrl"})
     // else 404
     .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
 }]);
 
-/**
- * Controls the Blog
- */
-app.controller('BlogCtrl', function (/* $scope, $location, $http */) {
-  console.log("Blog Controller reporting for duty.");
-});
 
 /**
  * Controls all other Pages
@@ -52,4 +38,46 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
   $('.tooltip-social').tooltip({
     selector: "a[data-toggle=tooltip]"
   })
+});
+
+angular.module('app', ['ui.bootstrap']);
+function CarouselCtrl($scope){
+   $scope.slides = [
+    {
+      image: './pictures/Norway.jpg',
+      name: 'Norway'
+    },
+    {
+      image: './pictures/Sweden.jpg',
+      name: 'Sweden'
+    },
+    {
+      image: './pictures/Finland.jpg',
+      name: 'Finland'
+    },
+    {
+      image: './pictures/Iceland.jpg',
+      name: 'Iceland'
+    },
+    {
+      image: './pictures/Denmark.jpg',
+      name: 'Denmark'
+    }
+  ];
+}
+
+app.directive('carousel', function($timeout) {
+   return {
+      restrict: 'E',
+      scope: {
+        links: '=' 
+      },
+      templateUrl: 'carousel.html',
+      link: function(scope, element) {
+        $timeout(function() {
+          $('.carousel-indicators li',element).first().addClass('active');
+          $('.carousel-inner .item',element).first().addClass('active');
+        });
+      }
+   }
 });
